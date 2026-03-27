@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-6 md:px-16 lg:px-24 py-5 flex items-center justify-between bg-background/80 backdrop-blur-md border-b border-border/50">
       <a href="#" className="font-heading text-xl font-bold tracking-tight">
-        AGENCY<span className="text-primary">.</span>
+        МАНЧЕСТЕР<span className="text-primary">.</span>
       </a>
 
       {/* Desktop nav */}
