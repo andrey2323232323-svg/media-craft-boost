@@ -15,10 +15,10 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-6"
-        >
+          className="mb-6">
+          
           <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 text-primary text-sm font-medium tracking-wide">
-            DIGITAL AGENCY
+            ​ДИДЖИТАЛ АГЕНТСТВО  
           </span>
         </motion.div>
 
@@ -26,8 +26,8 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-8"
-        >
+          className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight mb-8">
+          
           Делаем бренды
           <br />
           <span className="text-gradient">заметными</span>
@@ -37,8 +37,8 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-muted-foreground text-lg md:text-xl max-w-xl mb-12 leading-relaxed"
-        >
+          className="text-muted-foreground text-lg md:text-xl max-w-xl mb-12 leading-relaxed">
+          
           Таргет, SMM, видеопродакшн и размещения в&nbsp;СМИ.
           Комплексный подход к продвижению вашего проекта.
         </motion.p>
@@ -48,8 +48,8 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="inline-flex items-center gap-2 text-primary hover:text-foreground transition-colors cursor-pointer"
-        >
+          className="inline-flex items-center gap-2 text-primary hover:text-foreground transition-colors cursor-pointer">
+          
           <span className="text-sm tracking-widest uppercase">Узнать больше</span>
           <ArrowDown className="w-4 h-4 animate-bounce" />
         </motion.a>
@@ -58,8 +58,8 @@ const HeroSection = () => {
       {/* Decorative accent */}
       <div className="absolute -right-32 top-1/4 w-96 h-96 rounded-full bg-primary/5 blur-3xl" />
       <div className="absolute -left-20 bottom-1/4 w-64 h-64 rounded-full bg-primary/3 blur-3xl" />
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
