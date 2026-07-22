@@ -1,3 +1,16 @@
-# Welcome to your Lovable project
+# Manchester Digital
 
-TODO: Document your project here
+Сайт диджитал-агентства Manchester Digital.
+
+## Локальный запуск
+
+```sh
+pnpm install
+pnpm dev
+```
+
+## Production-сборка
+
+```sh
+pnpm build
+```
