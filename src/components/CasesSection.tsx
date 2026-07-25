@@ -29,7 +29,7 @@ const cases = [
     title: "Металлургическая компания",
     services: "SMM",
     number: "03",
-    link: "https://vk.com/chtpz.tmk_group",
+    link: "https://vk.ru/chtpz.tmk_group",
     results: [
       "+4 000 в течение года в сообществе во ВКонтакте",
       "Перезапущена контент-стратегия и визуальный стиль соцсетей",
@@ -62,7 +62,7 @@ const cases = [
     title: "Научно-популярный телеграм-канал",
     services: "Telegram",
     number: "06",
-    link: undefined,
+    link: "https://t.me/towerweber",
     results: [],
   },
 ];
