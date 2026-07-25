@@ -18,7 +18,7 @@ const HeroSection = () => {
           className="mb-6">
           
           <span className="inline-block px-4 py-1.5 rounded-full border border-primary/30 text-primary text-sm font-medium tracking-wide">
-            ​ДИДЖИТАЛ АГЕНТСТВО  
+            ​СТУДИЯ ПРОДВИЖЕНИЯ  
           </span>
         </motion.div>
 
