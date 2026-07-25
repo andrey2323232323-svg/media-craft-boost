@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 const cases = [
   {
     title: "Научно-популярный проект",
-    services: "SMM + YouTube канал",
+    services: "SMM + YouTube канал + Таргетированная реклама",
     number: "01",
     link: "https://www.youtube.com/@HomoScience",
     results: [
@@ -27,7 +27,7 @@ const cases = [
   },
   {
     title: "Металлургическая компания",
-    services: "SMM",
+    services: "SMM + Таргетированная реклама",
     number: "03",
     link: "https://vk.ru/chtpz.tmk_group",
     results: [
