@@ -1,0 +1,97 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: manchester-digital-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.9.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Check deploy secrets
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          if [ -z "$SSH_HOST" ] || [ -z "$SSH_USER" ] || [ -z "$SSH_KEY" ] || [ -z "$DEPLOY_PATH" ]; then
+            echo "VPS deploy secrets are missing."
+            echo "Add SSH_HOST, SSH_USER, SSH_KEY and DEPLOY_PATH in repository secrets."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Upload build to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          source: "dist"
+          target: ${{ secrets.DEPLOY_PATH }}__upload
+          rm: true
+          overwrite: true
+
+      - name: Publish build on VPS
+        uses: appleboy/ssh-action@v1.0.3
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          envs: SOURCE_SHA
+          command_timeout: 5m
+          script: |
+            set -e
+
+            DEPLOY_DIR="${{ secrets.DEPLOY_PATH }}"
+            UPLOAD_DIR="${DEPLOY_DIR}__upload"
+            BUILD_DIR="${UPLOAD_DIR}/dist"
+
+            if [ ! -d "${BUILD_DIR}" ]; then
+              echo "Could not find uploaded dist directory at ${BUILD_DIR}"
+              find "${UPLOAD_DIR}" -maxdepth 3 -type f | head -n 80 || true
+              exit 1
+            fi
+
+            mkdir -p "${DEPLOY_DIR}"
+
+            # Keep server-only files such as .htaccess, but replace the published site assets.
+            find "${DEPLOY_DIR}" -mindepth 1 -maxdepth 1 \
+              ! -name ".htaccess" \
+              ! -name ".well-known" \
+              -exec rm -rf {} +
+
+            cp -a "${BUILD_DIR}/." "${DEPLOY_DIR}/"
+            rm -rf "${UPLOAD_DIR}"
+
+            echo "SOURCE_SHA: ${SOURCE_SHA}" > "${DEPLOY_DIR}/deploy-version.txt"
+            echo "Deploy finished"
+

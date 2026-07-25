@@ -1,0 +1,33 @@
+name: Diagnose VPS
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Inspect VPS
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          command_timeout: 5m
+          script: |
+            set -e
+
+            DEPLOY_DIR="${{ secrets.DEPLOY_PATH }}"
+            cd "${DEPLOY_DIR}"
+
+            echo "===== deploy path ====="
+            pwd
+
+            echo "===== deployed version ====="
+            cat deploy-version.txt || true
+
+            echo "===== files ====="
+            find . -maxdepth 2 -type f | sort | head -n 120 || true
+
+            echo "===== disk usage ====="
+            du -sh . || true
