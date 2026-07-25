@@ -60,7 +60,7 @@ const cases = [
   },
   {
     title: "Научно-популярный телеграм-канал",
-    services: "Telegram",
+    services: "SMM + Таргетированная реклама",
     number: "06",
     link: "https://t.me/towerweber",
     results: [],
