@@ -42,7 +42,7 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
-          VITE_BASE: /media-craft-boost/
+          VITE_BASE: /
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
