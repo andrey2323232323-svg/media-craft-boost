@@ -142,7 +142,7 @@ jobs:
             esac
 
             case "${DEPLOY_DIR}" in
-              *manchesterdigital.ru*|*manchester-digital*|*manchester_digital*)
+              /var/www/media-craft-boost|*manchesterdigital.ru*|*manchester-digital*|*manchester_digital*)
                 ;;
               *)
                 echo "Refusing to deploy to a path that does not look like the Manchester Digital site: ${DEPLOY_DIR}"
