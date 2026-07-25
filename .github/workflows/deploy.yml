@@ -33,11 +33,10 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_KEY: ${{ secrets.SSH_KEY }}
-          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          if [ -z "$SSH_HOST" ] || [ -z "$SSH_USER" ] || [ -z "$SSH_KEY" ] || [ -z "$DEPLOY_PATH" ]; then
+          if [ -z "$SSH_HOST" ] || [ -z "$SSH_USER" ] || [ -z "$SSH_KEY" ]; then
             echo "VPS deploy secrets are missing."
-            echo "Add SSH_HOST, SSH_USER, SSH_KEY and DEPLOY_PATH in repository secrets."
+            echo "Add SSH_HOST, SSH_USER and SSH_KEY in repository secrets."
             exit 1
           fi
 
@@ -54,7 +53,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           source: "dist"
-          target: ${{ secrets.DEPLOY_PATH }}__upload
+          target: "~/manchester-digital-upload"
           rm: true
           overwrite: true
 
@@ -62,18 +61,85 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         env:
           SOURCE_SHA: ${{ github.sha }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
-          envs: SOURCE_SHA
+          envs: SOURCE_SHA,DEPLOY_PATH
           command_timeout: 5m
           script: |
             set -e
 
-            DEPLOY_DIR="${{ secrets.DEPLOY_PATH }}"
-            UPLOAD_DIR="${DEPLOY_DIR}__upload"
+            detect_deploy_dir() {
+              if [ -n "${DEPLOY_PATH}" ]; then
+                echo "${DEPLOY_PATH}"
+                return 0
+              fi
+
+              for base in /etc/nginx /etc/apache2; do
+                if [ -d "$base" ]; then
+                  files="$(grep -RIl "manchesterdigital.ru" "$base" 2>/dev/null || true)"
+                  for file in $files; do
+                    dir="$(awk '
+                      /root[[:space:]]/ {
+                        gsub(";", "", $2);
+                        print $2;
+                        exit;
+                      }
+                      /DocumentRoot[[:space:]]/ {
+                        print $2;
+                        exit;
+                      }
+                    ' "$file")"
+                    if [ -n "$dir" ] && [ -d "$dir" ]; then
+                      echo "$dir"
+                      return 0
+                    fi
+                  done
+                fi
+              done
+
+              for dir in \
+                /var/www/www-root/data/www/manchesterdigital.ru \
+                /var/www/manchesterdigital.ru \
+                /var/www/html/manchesterdigital.ru \
+                /home/*/www/manchesterdigital.ru \
+                /home/*/domains/manchesterdigital.ru/public_html
+              do
+                if [ -d "$dir" ]; then
+                  echo "$dir"
+                  return 0
+                fi
+              done
+
+              found="$(find /var/www /home -maxdepth 6 -type d -name "manchesterdigital.ru" 2>/dev/null | head -n 1 || true)"
+              if [ -n "$found" ]; then
+                echo "$found"
+                return 0
+              fi
+
+              return 1
+            }
+
+            DEPLOY_DIR="$(detect_deploy_dir || true)"
+            UPLOAD_DIR="$HOME/manchester-digital-upload"
             BUILD_DIR="${UPLOAD_DIR}/dist"
+
+            if [ -z "${DEPLOY_DIR}" ]; then
+              echo "Could not detect deploy path for manchesterdigital.ru."
+              echo "Set DEPLOY_PATH repository secret manually, or check nginx/apache document root."
+              echo "Common candidates found under /var/www and /home:"
+              find /var/www /home -maxdepth 5 -type d 2>/dev/null | grep -Ei 'manchester|public_html|www|html' | head -n 120 || true
+              exit 1
+            fi
+
+            case "${DEPLOY_DIR}" in
+              /|/home|/var|/var/www)
+                echo "Refusing to deploy to unsafe path: ${DEPLOY_DIR}"
+                exit 1
+                ;;
+            esac
 
             if [ ! -d "${BUILD_DIR}" ]; then
               echo "Could not find uploaded dist directory at ${BUILD_DIR}"
@@ -81,6 +147,7 @@ jobs:
               exit 1
             fi
 
+            echo "Deploy path: ${DEPLOY_DIR}"
             mkdir -p "${DEPLOY_DIR}"
 
             # Keep server-only files such as .htaccess, but replace the published site assets.
@@ -94,4 +161,3 @@ jobs:
 
             echo "SOURCE_SHA: ${SOURCE_SHA}" > "${DEPLOY_DIR}/deploy-version.txt"
             echo "Deploy finished"
-

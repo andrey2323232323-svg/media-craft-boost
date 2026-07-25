@@ -9,16 +9,31 @@ jobs:
     steps:
       - name: Inspect VPS
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
+          envs: DEPLOY_PATH
           command_timeout: 5m
           script: |
             set -e
 
-            DEPLOY_DIR="${{ secrets.DEPLOY_PATH }}"
-            cd "${DEPLOY_DIR}"
+            echo "===== configured deploy path ====="
+            echo "${DEPLOY_PATH:-not set}"
+
+            echo "===== nginx/apache references ====="
+            grep -RIn "manchesterdigital.ru" /etc/nginx /etc/apache2 2>/dev/null || true
+
+            echo "===== candidate directories ====="
+            find /var/www /home -maxdepth 6 -type d 2>/dev/null | grep -Ei 'manchester|public_html|www|html' | sort | head -n 160 || true
+
+            if [ -n "${DEPLOY_PATH}" ] && [ -d "${DEPLOY_PATH}" ]; then
+              cd "${DEPLOY_PATH}"
+            else
+              exit 0
+            fi
 
             echo "===== deploy path ====="
             pwd
