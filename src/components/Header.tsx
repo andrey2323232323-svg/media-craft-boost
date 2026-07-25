@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { TELEGRAM_CONTACT_URL } from "@/lib/contacts";
 
 const navItems = [
   { label: "Услуги", href: "#services" },
@@ -29,7 +30,9 @@ const Header = () => {
           </a>
         ))}
         <a
-          href="#contact"
+          href={TELEGRAM_CONTACT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-sm px-5 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
         >
           Связаться
