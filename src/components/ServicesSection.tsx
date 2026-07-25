@@ -6,7 +6,7 @@ const services = [
     icon: Target,
     title: "Таргетированная реклама",
     description: "ВКонтакте, Яндекс Директ, YouTube — настраиваем и ведём рекламные кампании с прозрачной аналитикой.",
-    tags: ["VK Ads", "Яндекс Директ", "YouTube"],
+    tags: ["Telegram Ads", "VK Ads", "Яндекс Директ", "YouTube"],
   },
   {
     icon: MessageSquare,
