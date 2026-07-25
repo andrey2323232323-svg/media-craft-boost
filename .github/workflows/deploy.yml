@@ -141,6 +141,16 @@ jobs:
                 ;;
             esac
 
+            case "${DEPLOY_DIR}" in
+              *manchesterdigital.ru*|*manchester-digital*|*manchester_digital*)
+                ;;
+              *)
+                echo "Refusing to deploy to a path that does not look like the Manchester Digital site: ${DEPLOY_DIR}"
+                echo "If this path is correct, set DEPLOY_PATH explicitly to a domain-specific directory."
+                exit 1
+                ;;
+            esac
+
             if [ ! -d "${BUILD_DIR}" ]; then
               echo "Could not find uploaded dist directory at ${BUILD_DIR}"
               find "${UPLOAD_DIR}" -maxdepth 3 -type f | head -n 80 || true
