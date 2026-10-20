@@ -1,0 +1,10 @@
+export type CaseImage = { file: string; width: number; height: number; crop: [number, number, number, number]; caption: string };
+const img = (file: string, width: number, height: number, crop: CaseImage['crop'], caption: string): CaseImage => ({file,width,height,crop,caption});
+export const caseMedia: {cover: CaseImage; gallery: CaseImage[]}[] = [
+ {cover:img('covers/atomarium-v2.png',2172,724,[0,0,2172,724],'Художественная обложка проекта'),gallery:[img('atomarium.png',1386,792,[17,454,434,244],'Загадки времени'),img('atomarium.png',1386,792,[471,454,435,244],'Красота'),img('atomarium.png',1386,792,[926,454,434,244],'Воспитание')]},
+ {cover:img('covers/school-v2.png',2172,724,[0,0,2172,724],'Художественная обложка проекта'),gallery:[img('school.png',1425,782,[39,468,434,244],'Путь длиною в 7 лет'),img('school.png',1425,782,[493,468,435,244],'Сажайте лаванду'),img('school.png',1425,782,[948,468,434,244],'Гортензии на участке')]},
+ {cover:img('covers/tmk-v2.png',2172,724,[0,0,2172,724],'Художественная обложка проекта'),gallery:[img('tmk.png',1158,760,[31,532,200,150],'ЧТПЗ'),img('tmk.png',1158,760,[247,532,200,150],'Производство и события'),img('tmk.png',1158,760,[463,532,200,150],'Жизнь команды')]},
+ {cover:img('covers/transport-v2.png',2172,724,[0,0,2172,724],'Художественная обложка проекта'),gallery:[img('transport-clips.png',644,702,[0,65,202,361],'Люди и транспорт'),img('transport-clips.png',644,702,[214,65,203,361],'5 лет перемен'),img('transport-clips.png',644,702,[429,65,203,361],'Истории сотрудников'),img('transport.png',1170,747,[3,0,1140,376],'Оформление сообщества')]},
+ {cover:img('covers/science-v2.png',2172,724,[0,0,2172,724],'Художественная обложка проекта'),gallery:[]},
+ {cover:img('covers/tv-v2.png',2172,724,[0,0,2172,724],'Художественная обложка проекта'),gallery:[img('tv-clips.png',662,687,[9,47,203,361],'Герои коротких видео'),img('tv-clips.png',662,687,[439,47,203,361],'Эксперты и события'),img('tv-design.png',671,672,[1,69,669,573],'Информационные карточки'),img('tv-brand.png',1140,690,[0,0,1138,374],'Фирменное оформление')]},
+];
