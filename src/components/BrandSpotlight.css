@@ -21,5 +21,15 @@
 @media(hover:none){.brand-hint{display:none}.brand-tile{color:#78836b!important}.brand-tile.is-active{color:#eef5e3!important}}
 @media(prefers-reduced-motion:reduce){.brand-showcase *{transition:none!important}.brand-tile.is-active{transform:none}}
 
-.brand-logo{width:82%;height:100px;object-fit:contain;opacity:.32;filter:brightness(0) invert(1);transition:opacity .65s,filter .65s;pointer-events:none}.brand-logo--russia{filter:grayscale(1)}.brand-logo--paper{filter:grayscale(1) invert(1);mix-blend-mode:screen}.brand-tile.is-active .brand-logo{opacity:1}.brand-tile.is-active .brand-logo--russia{filter:grayscale(0)}@media(max-width:650px){.brand-logo{height:65px;width:88%}}
+.brand-logo{width:82%;height:100px;object-fit:contain;opacity:.32;filter:brightness(0) invert(1);transition:opacity .65s,filter .65s;pointer-events:none}.brand-logo--russia{filter:grayscale(1)}.brand-logo--paper{filter:grayscale(1) invert(1);mix-blend-mode:screen}.brand-tile.is-active .brand-logo{opacity:1}.brand-tile.is-active .brand-logo--russia{filter:grayscale(1)}@media(max-width:650px){.brand-logo{height:65px;width:88%}}
 
+
+.brand-beam{position:absolute;left:var(--beam-x,30%);top:var(--beam-y,40px);width:var(--beam-length,300px);height:180px;transform-origin:0 50%;transform:translateY(-50%) rotate(var(--beam-angle,1rad));pointer-events:none;z-index:2;opacity:0;mix-blend-mode:screen;filter:blur(9px);transition:transform .65s cubic-bezier(.2,.7,.2,1),width .65s cubic-bezier(.2,.7,.2,1),opacity .5s}
+.brand-beam::before{content:'';position:absolute;inset:0;clip-path:polygon(0 48%,100% 0,100% 100%,0 52%);background:linear-gradient(90deg,#e5f8b46b,#d8f88e38 30%,#c5f63716 80%,transparent)}
+.has-beam .brand-beam{opacity:.8}
+.brand-orb{z-index:3;pointer-events:none}
+.brand-orb::after{content:'';position:absolute;inset:10%;border-radius:50%;box-shadow:12px 12px 24px #c5f63755;opacity:0;transition:opacity .6s}
+.has-beam .brand-orb::after{opacity:1}
+@media(max-width:650px){.brand-beam{height:110px;filter:blur(6px)}}
+
+/* Spotlight beam styles */
