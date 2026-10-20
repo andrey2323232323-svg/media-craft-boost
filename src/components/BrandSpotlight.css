@@ -20,3 +20,6 @@
 @media(max-width:650px){.hero:has(.brand-showcase){padding-bottom:380px;min-height:0}.brand-showcase{top:auto;bottom:48px;right:0;width:100%;height:300px}.brand-stage{inset:18px 12px 28px 12px;transform:perspective(900px) rotateY(-8deg) rotateZ(-5deg)}.brand-grid{gap:10px}.brand-tile{padding:15px 7px;gap:4px}.brand-symbol{width:52px}.brand-name{font-size:11px}.brand-id{font-size:6px;top:7px;left:7px}.brand-orb{width:32px;height:32px;top:-20px;left:12%}.brand-light{width:220px;height:220px}.brand-hint{display:none}}
 @media(hover:none){.brand-hint{display:none}.brand-tile{color:#78836b!important}.brand-tile.is-active{color:#eef5e3!important}}
 @media(prefers-reduced-motion:reduce){.brand-showcase *{transition:none!important}.brand-tile.is-active{transform:none}}
+
+.brand-logo{width:82%;height:100px;object-fit:contain;opacity:.32;filter:brightness(0) invert(1);transition:opacity .65s,filter .65s;pointer-events:none}.brand-logo--russia{filter:grayscale(1)}.brand-logo--paper{filter:grayscale(1) invert(1);mix-blend-mode:screen}.brand-tile.is-active .brand-logo{opacity:1}.brand-tile.is-active .brand-logo--russia{filter:grayscale(0)}@media(max-width:650px){.brand-logo{height:65px;width:88%}}
+
