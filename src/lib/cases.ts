@@ -1,6 +1,6 @@
 import type { CaseImage } from './case-media';
 
-type CaseStudy = { title: string; company: string; services: string; number: string; link: string; results: string[]; details: { subtitle: string; tags: string[]; metrics: string[][]; task: string; work: string[]; note?: string; platform: string; handle: string }; media: { cover: CaseImage; gallery: CaseImage[] }; verticalGallery: boolean; formatsOnly: boolean };
+type CaseStudy = { title: string; company: string; services: string; number: string; link: string; results: string[]; details: { subtitle: string; tags: string[]; metrics: string[][]; task: string; work: string[]; note?: string; platform: string; handle: string }; media: { cover: CaseImage; gallery: CaseImage[] }; ceremony?: boolean; verticalGallery: boolean; formatsOnly: boolean };
 
 export const cases: CaseStudy[] = [
   {
@@ -398,9 +398,103 @@ export const cases: CaseStudy[] = [
     "formatsOnly": true
   },
   {
+    "number": "05",
+    "formatsOnly": false,
+    "details": {
+      "tags": [
+        "SMM",
+        "Разработка сайта",
+        "PR",
+        "Офлайн-мероприятие"
+      ],
+      "handle": "@fhistory_official",
+      "platform": "Telegram",
+      "task": "Обеспечить комплексное сопровождение литературной премии в digital и организовать офлайн-мероприятие.",
+      "metrics": [],
+      "work": [
+        "Полное сопровождение в социальных сетях",
+        "Разработка сайта проекта",
+        "PR-сопровождение",
+        "Организация офлайн-мероприятия"
+      ],
+      "subtitle": "Полное сопровождение литературной премии: от социальных сетей и сайта до PR и церемонии награждения."
+    },
+    "media": {
+      "gallery": [
+        {
+          "height": 1707,
+          "file": "literary-award/ceremony-2.jpg",
+          "caption": "Вручение награды",
+          "crop": [
+            0,
+            0,
+            2560,
+            1707
+          ],
+          "width": 2560
+        },
+        {
+          "height": 1708,
+          "file": "literary-award/ceremony-3.jpg",
+          "caption": "Гости церемонии",
+          "crop": [
+            0,
+            0,
+            2560,
+            1708
+          ],
+          "width": 2560
+        },
+        {
+          "height": 1707,
+          "file": "literary-award/ceremony-4.jpg",
+          "caption": "Интервью на церемонии",
+          "crop": [
+            0,
+            0,
+            2560,
+            1707
+          ],
+          "width": 2560
+        },
+        {
+          "height": 1707,
+          "file": "literary-award/ceremony-5.jpg",
+          "caption": "Световое шоу",
+          "crop": [
+            0,
+            0,
+            2560,
+            1707
+          ],
+          "width": 2560
+        }
+      ],
+      "cover": {
+        "height": 1708,
+        "file": "literary-award/ceremony-1.jpg",
+        "caption": "Сцена церемонии награждения литературной премии",
+        "crop": [
+          0,
+          380,
+          2560,
+          1000
+        ],
+        "width": 2560
+      }
+    },
+    "company": "Росатом",
+    "results": [],
+    "services": "SMM + Разработка сайта + PR + Офлайн-мероприятие",
+    "verticalGallery": false,
+    "title": "Литературная премия",
+    "link": "https://t.me/fhistory_official",
+    "ceremony": true
+  },
+  {
     "title": "Строгоорганик",
     "services": "YouTube",
-    "number": "05",
+    "number": "06",
     "link": "https://www.youtube.com/@strogoorganic/",
     "results": [
       "Перезапущен видеопродакшен для YouTube",
@@ -492,4 +586,3 @@ export const cases: CaseStudy[] = [
     "formatsOnly": false
   }
 ];
-
