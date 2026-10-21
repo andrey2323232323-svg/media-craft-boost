@@ -7,13 +7,13 @@ const crops: Record<string, [number, number, number, number]> = {
  'ekaterina-anisimova':[36,0,568,639],
  'sandra-elagina':[145,55,250,281.25],
  'alexey-merkulov':[45,0,568,639],
- 'alexandra-kalacheva':[145,20,310,348.75],
+ 'maria-osipova':[45,350,400,450],
  'evgeny-vashurkin':[170,50,330,371.25],
  'ivan-bondyrev':[30,0,568,639],
  'evgeny-entin':[0,0,568,639],
 };
 export default function TeamPortrait({photo,name}:{photo:string;name:string}){
  const id=useId();const crop=crops[photo]??[0,0,568,639];const file=photo==='andrey-vkusov'?'andrey-vkusov-gray.webp':photo==='alexey-merkulov'?'alexey-merkulov-shirt.webp':photo==='ekaterina-anisimova'?'ekaterina-anisimova-enhanced.webp':`${photo}.webp`;
- return <svg className="team-portrait" viewBox={crop.join(' ')} role="img" aria-label={name}><defs><clipPath id={id}><rect x={crop[0]} y={crop[1]} width={crop[2]} height={crop[3]}/></clipPath></defs><image clipPath={`url(#${id})`} href={`${import.meta.env.BASE_URL}images/team/${file}`} width="640" height="640" preserveAspectRatio="none"/></svg>;
+ return <svg className="team-portrait" viewBox={crop.join(' ')} role="img" aria-label={name}><defs><clipPath id={id}><rect x={crop[0]} y={crop[1]} width={crop[2]} height={crop[3]}/></clipPath></defs><image clipPath={`url(#${id})`} href={`${import.meta.env.BASE_URL}images/team/${file}`} width="640" height={photo==='maria-osipova'?640*2560/1441:640} preserveAspectRatio="none"/></svg>;
 }
 

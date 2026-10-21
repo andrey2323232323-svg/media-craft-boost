@@ -38,9 +38,9 @@ const team = [
     "alexey-merkulov"
   ],
   [
-    "Александра Калачева",
+    "Мария Осипова",
     "Эвент-продюсер",
-    "alexandra-kalacheva"
+    "maria-osipova"
   ],
   [
     "Евгений Вашуркин",
