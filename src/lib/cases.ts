@@ -583,7 +583,24 @@ export const cases: CaseStudy[] = [
       ]
     },
     "verticalGallery": false,
-    "formatsOnly": false
+    "formatsOnly": false,
+    "videos": [
+      {
+        "title": "Мария Винокур — ролик 1",
+        "file": "videos/strogoorganic/clip-1.mp4",
+        "poster": "videos/strogoorganic/poster-1.webp"
+      },
+      {
+        "title": "Мария Винокур — ролик 2",
+        "file": "videos/strogoorganic/clip-2.mp4",
+        "poster": "videos/strogoorganic/poster-2.webp"
+      },
+      {
+        "title": "Мария Винокур — ролик 3",
+        "file": "videos/strogoorganic/clip-3.mp4",
+        "poster": "videos/strogoorganic/poster-3.webp"
+      }
+    ]
   },
   {
     "title": "Мотив × «Одна Шестая»",
