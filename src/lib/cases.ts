@@ -310,7 +310,7 @@ export const cases: CaseStudy[] = [
     "title": "Есть решение",
     "services": "Социальные сети + Короткие видео + Дизайн",
     "number": "04",
-    "link": "",
+    "link": "https://vk.ru/eystreshenie",
     "results": [],
     "company": "Россия 24",
     "details": {
@@ -327,7 +327,7 @@ export const cases: CaseStudy[] = [
         "Информационные карточки для социальных сетей",
         "Единый визуальный стиль публикаций"
       ],
-      "platform": "Россия 24",
+      "platform": "ВКонтакте",
       "handle": "Есть решение"
     },
     "media": {
