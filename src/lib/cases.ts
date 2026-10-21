@@ -343,20 +343,7 @@ export const cases: CaseStudy[] = [
         ],
         "caption": "Художественная обложка проекта"
       },
-      "gallery": [
-        {
-          "file": "est-reshenie/publication.webp",
-          "width": 671,
-          "height": 672,
-          "crop": [
-            0,
-            0,
-            671,
-            672
-          ],
-          "caption": "Пример публикации"
-        }
-      ]
+      "gallery": []
     },
     "verticalGallery": true,
     "formatsOnly": true,
@@ -371,8 +358,7 @@ export const cases: CaseStudy[] = [
         "file": "videos/est-reshenie/clip-1.mp4",
         "poster": "videos/est-reshenie/poster-1.webp"
       }
-    ],
-    "galleryTitle": "Пример публикации"
+    ]
   },
   {
     "number": "05",
