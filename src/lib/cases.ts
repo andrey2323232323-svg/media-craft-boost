@@ -1,6 +1,6 @@
 import type { CaseImage } from './case-media';
 
-type CaseStudy = { title: string; company: string; services: string; number: string; link: string; results: string[]; details: { subtitle: string; tags: string[]; metrics: string[][]; task: string; work: string[]; note?: string; platform: string; handle: string }; media: { cover: CaseImage; gallery: CaseImage[] }; ceremony?: boolean; galleryTitle?: string; achievements?: string[]; verticalGallery: boolean; formatsOnly: boolean };
+type CaseStudy = { title: string; company: string; services: string; number: string; link: string; results: string[]; details: { subtitle: string; tags: string[]; metrics: string[][]; task: string; work: string[]; note?: string; platform: string; handle: string }; media: { cover: CaseImage; gallery: CaseImage[] }; ceremony?: boolean; videos?: {title:string;file:string;poster:string}[]; galleryTitle?: string; achievements?: string[]; verticalGallery: boolean; formatsOnly: boolean };
 
 export const cases: CaseStudy[] = [
   {
@@ -491,79 +491,6 @@ export const cases: CaseStudy[] = [
     "link": "https://t.me/fhistory_official",
     "ceremony": true
   },
-{
-  "title": "Росреестр",
-  "company": "Росреестр",
-  "services": "SMM, производство контента, модерация",
-  "number": "08",
-  "link": "",
-  "results": [],
-  "details": {
-    "subtitle": "Поддержка официального сообщества во ВКонтакте: производство контента и модерация.",
-    "tags": [
-      "SMM",
-      "ВКонтакте",
-      "Контент",
-      "Модерация",
-      "Визуальный стиль"
-    ],
-    "metrics": [],
-    "task": "Обеспечить поддержку официального сообщества Росреестра во ВКонтакте: создавать контент и модерировать сообщество.",
-    "work": [
-      "Производство контента для официального сообщества",
-      "Модерация сообщества во ВКонтакте"
-    ],
-    "platform": "",
-    "handle": ""
-  },
-  "achievements": [
-    "Разработан новый визуальный стиль",
-    "Запущен аккаунт в Твиттер с уникальным контентом"
-  ],
-  "galleryTitle": "Примеры контента Росреестра",
-  "media": {
-    "cover": {
-      "file": "rosreestr/community.webp",
-      "width": 1141,
-      "height": 525,
-      "crop": [
-        0,
-        10,
-        1126,
-        379
-      ],
-      "caption": "Официальное сообщество Росреестра"
-    },
-    "gallery": [
-      {
-        "file": "rosreestr/space.webp",
-        "width": 602,
-        "height": 630,
-        "crop": [
-          0,
-          0,
-          602,
-          630
-        ],
-        "caption": "Познавательный контент: граница космоса"
-      },
-      {
-        "file": "rosreestr/amnesty.webp",
-        "width": 586,
-        "height": 615,
-        "crop": [
-          0,
-          0,
-          586,
-          615
-        ],
-        "caption": "Информационные карточки: дачная амнистия"
-      }
-    ]
-  },
-  "verticalGallery": false,
-  "formatsOnly": false
-},
   {
     "title": "Строгоорганик",
     "services": "YouTube",
@@ -654,6 +581,115 @@ export const cases: CaseStudy[] = [
           "caption": "Гортензии на участке"
         }
       ]
+    },
+    "verticalGallery": false,
+    "formatsOnly": false
+  },
+  {
+    "title": "Мотив × «Одна Шестая»",
+    "company": "Сотовый оператор Мотив × кинофестиваль «Одна Шестая»",
+    "services": "Производство коротких видеороликов",
+    "number": "07",
+    "link": "",
+    "results": [],
+    "details": {
+      "subtitle": "«Экскурсии по киноместам Екатеринбурга» — серия коротких видеороликов.",
+      "tags": [
+        "Видеопродакшен",
+        "Сценарий",
+        "Кастинг",
+        "Съёмки",
+        "Постпродакшен"
+      ],
+      "metrics": [],
+      "task": "Создать короткие видеоролики «Экскурсии по киноместам Екатеринбурга» для совместного проекта оператора Мотив и кинофестиваля «Одна Шестая».",
+      "work": [
+        "Разработка сценария",
+        "Поиск актёров",
+        "Организация и проведение съёмок",
+        "Постпродакшен"
+      ],
+      "platform": "",
+      "handle": ""
+    },
+    "media": {
+      "cover": {
+        "file": "../videos/motiv/poster-3.webp",
+        "width": 540,
+        "height": 960,
+        "crop": [
+          0,
+          0,
+          540,
+          960
+        ],
+        "caption": "Кадр из экскурсии по киноместам Екатеринбурга"
+      },
+      "gallery": []
+    },
+    "videos": [
+      {
+        "title": "Литературный квартал",
+        "file": "videos/motiv/clip-1.mp4",
+        "poster": "videos/motiv/poster-1.webp"
+      },
+      {
+        "title": "Кинематограф Екатеринбурга",
+        "file": "videos/motiv/clip-2.mp4",
+        "poster": "videos/motiv/poster-2.webp"
+      },
+      {
+        "title": "Храм на Крови",
+        "file": "videos/motiv/clip-3.mp4",
+        "poster": "videos/motiv/poster-3.webp"
+      }
+    ],
+    "verticalGallery": false,
+    "formatsOnly": false
+  },
+  {
+    "title": "Росреестр",
+    "company": "Росреестр",
+    "services": "SMM, производство контента, модерация",
+    "number": "08",
+    "link": "",
+    "results": [],
+    "details": {
+      "subtitle": "Поддержка официального сообщества во ВКонтакте: производство контента и модерация.",
+      "tags": [
+        "SMM",
+        "ВКонтакте",
+        "Контент",
+        "Модерация",
+        "Визуальный стиль"
+      ],
+      "metrics": [],
+      "task": "Обеспечить поддержку официального сообщества Росреестра во ВКонтакте: создавать контент и модерировать сообщество.",
+      "work": [
+        "Производство контента для официального сообщества",
+        "Модерация сообщества во ВКонтакте"
+      ],
+      "platform": "",
+      "handle": ""
+    },
+    "achievements": [
+      "Разработан новый визуальный стиль",
+      "Запущен аккаунт в Твиттер с уникальным контентом"
+    ],
+    "media": {
+      "cover": {
+        "file": "covers/rosreestr.webp",
+        "width": 2171,
+        "height": 724,
+        "crop": [
+          0,
+          0,
+          2171,
+          724
+        ],
+        "caption": "Иллюстрация: недвижимость, семья и окружающий мир"
+      },
+      "gallery": []
     },
     "verticalGallery": false,
     "formatsOnly": false
