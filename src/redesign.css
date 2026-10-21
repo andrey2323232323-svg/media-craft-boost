@@ -10,3 +10,6 @@
 
 .team-network{grid-column:1/-1;margin:8px 0 0;padding:26px 0 0;border-top:1px solid var(--line);max-width:100%;color:#b6b8ae;font-size:clamp(15px,1.4vw,20px);line-height:1.65;text-wrap:pretty}
 
+
+/* SVG arrows stay monochrome on mobile platforms. */
+.hero-bottom a{display:inline-flex;align-items:center;gap:6px}.ticker b svg,.contact-section h2>span svg{display:inline-block;vertical-align:middle}.slider-footer>span{display:inline-flex;align-items:center;gap:8px}

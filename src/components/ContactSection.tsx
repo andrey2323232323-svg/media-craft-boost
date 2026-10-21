@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
-import { TELEGRAM_CONTACT_URL } from "@/lib/contacts";
+import { CONTACT_EMAIL_URL } from "@/lib/contacts";
 
 const ContactSection = () => {
   return (
@@ -21,7 +21,7 @@ const ContactSection = () => {
             Расскажите о задачах — мы предложим решение и рассчитаем бюджет.
           </p>
           <a
-            href={TELEGRAM_CONTACT_URL}
+            href={CONTACT_EMAIL_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-primary text-primary-foreground font-heading font-semibold text-lg hover:opacity-90 transition-opacity"

@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Youtube } from 'lucide-react';
 import { cases } from '@/lib/cases';
 import type { CaseImage } from '@/lib/case-media';
 import './CaseStudies.css';
+import CeremonyGallery from './CeremonyGallery';
 
 function Artwork({image,className='',fit='slice'}:{image:CaseImage;className?:string;fit?:'slice'|'meet'}) {
  const cropId=useId();
@@ -22,7 +23,7 @@ export default function CaseStudies() {
  useLayoutEffect(()=>{const card=track.current?.children[selected] as HTMLElement|undefined;if(!card)return;const measure=()=>setHeight(card.getBoundingClientRect().height);measure();const observer=new ResizeObserver(measure);observer.observe(card);return()=>observer.disconnect();},[selected]);
  return <section id="cases" className="section cases-section">
   <div className="wrap">
-   <div className="section-heading"><span className="section-index">02 /</span><h2>РАБОТАЕТ. И ВИДНО.</h2><p>Реальные проекты, контент и результаты. Листайте кейсы — знакомьтесь с нашей работой.</p></div>
+   <div className="section-heading"><span className="section-index">02 /</span><h2>НАШИ КЕЙСЫ</h2><p>Реальные проекты, контент и результаты. Листайте кейсы — знакомьтесь с нашей работой.</p></div>
    <div className="case-slider-toolbar"><nav className="case-index" aria-label="Выбрать кейс">{cases.map((c,i)=><button type="button" aria-pressed={selected===i} aria-controls="case-viewport" onClick={()=>api?.scrollTo(i)} key={c.number}><span>{c.number}</span>{c.title}</button>)}</nav><div className="slider-controls"><span aria-live="polite" aria-atomic="true">{String(selected+1).padStart(2,'0')} <small>/ {String(cases.length).padStart(2,'0')}</small></span><button type="button" onClick={()=>api?.scrollPrev()} aria-label="Предыдущий кейс"><ArrowLeft size={20}/></button><button type="button" onClick={()=>api?.scrollNext()} aria-label="Следующий кейс"><ArrowRight size={20}/></button></div></div>
    <div id="case-viewport" ref={viewport} className="case-viewport" style={{height}} role="region" aria-roledescription="карусель" aria-label="Кейсы агентства" tabIndex={0} onKeyDown={e=>{if(e.key==='ArrowLeft'){e.preventDefault();api?.scrollPrev();}if(e.key==='ArrowRight'){e.preventDefault();api?.scrollNext();}}}>
     <div className="case-track" ref={track}>{cases.map((c,i)=>{const d=c.details;const media=c.media;return <div className="case-slide" role="group" aria-roledescription="слайд" aria-label={`${i+1} из ${cases.length}: ${c.title}`} aria-hidden={selected!==i} {...(selected!==i?{inert:''}:{})} key={c.number}>
@@ -34,11 +35,12 @@ export default function CaseStudies() {
       </div>
       {d.metrics.length>0&&<div className="study-results"><h4>Результаты</h4><dl className="study-metrics">{d.metrics.map(([value,label,scope])=><div key={label}><dt>{label}</dt><dd>{value}</dd><span>{scope}</span></div>)}</dl></div>}
       <div className="study-details"><div><h4>Задача</h4><p>{d.task}</p>{d.note&&<p className="study-note">{d.note}</p>}</div><div><h4>{c.formatsOnly?'Форматы проекта':'Что мы сделали'}</h4><ol>{d.work.map((item,n)=><li key={item}><span>{String(n+1).padStart(2,'0')}</span>{item}</li>)}</ol></div></div>
-      {c.ceremony&&<div className="ceremony-photos" aria-label="Фотографии церемонии награждения">{media.gallery.map(photo=><a key={photo.file} href={`${import.meta.env.BASE_URL}images/${photo.file}`} target="_blank" rel="noopener noreferrer" aria-label={`${photo.caption} — открыть фотографию`}><img src={`${import.meta.env.BASE_URL}images/${photo.file}`} alt={photo.caption} loading="lazy" width={photo.width} height={photo.height}/><span>{photo.caption}<ArrowUpRight size={14}/></span></a>)}</div>}
+      {c.ceremony&&<CeremonyGallery photos={media.gallery}/>}
      </article>
     </div>;})}</div>
    </div>
-   <div className="slider-footer"><span>СТРАТЕГИЯ → КОНТЕНТ → РЕЗУЛЬТАТ</span><div className="slider-controls"><button type="button" onClick={()=>api?.scrollPrev()} aria-label="Листать назад"><ArrowLeft size={18}/></button><button type="button" onClick={()=>api?.scrollNext()} aria-label="Листать вперёд">Следующий кейс <ArrowRight size={18}/></button></div></div>
+   <div className="slider-footer"><span>СТРАТЕГИЯ <ArrowRight aria-hidden="true" size={12}/> КОНТЕНТ <ArrowRight aria-hidden="true" size={12}/> РЕЗУЛЬТАТ</span><div className="slider-controls"><button type="button" onClick={()=>api?.scrollPrev()} aria-label="Листать назад"><ArrowLeft size={18}/></button><button type="button" onClick={()=>api?.scrollNext()} aria-label="Листать вперёд">Следующий кейс <ArrowRight size={18}/></button></div></div>
   </div>
  </section>;
 }
+

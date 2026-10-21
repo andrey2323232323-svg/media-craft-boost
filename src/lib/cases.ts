@@ -53,7 +53,7 @@ export const cases: CaseStudy[] = [
     },
     "media": {
       "cover": {
-        "file": "covers/atomarium-v2.png",
+        "file": "covers/atomarium-v2.webp",
         "width": 2172,
         "height": 724,
         "crop": [
@@ -66,7 +66,7 @@ export const cases: CaseStudy[] = [
       },
       "gallery": [
         {
-          "file": "atomarium.png",
+          "file": "atomarium.webp",
           "width": 1386,
           "height": 792,
           "crop": [
@@ -78,7 +78,7 @@ export const cases: CaseStudy[] = [
           "caption": "Загадки времени"
         },
         {
-          "file": "atomarium.png",
+          "file": "atomarium.webp",
           "width": 1386,
           "height": 792,
           "crop": [
@@ -90,7 +90,7 @@ export const cases: CaseStudy[] = [
           "caption": "Красота"
         },
         {
-          "file": "atomarium.png",
+          "file": "atomarium.webp",
           "width": 1386,
           "height": 792,
           "crop": [
@@ -145,7 +145,7 @@ export const cases: CaseStudy[] = [
     },
     "media": {
       "cover": {
-        "file": "covers/tmk-v2.png",
+        "file": "covers/tmk-v2.webp",
         "width": 2172,
         "height": 724,
         "crop": [
@@ -158,7 +158,7 @@ export const cases: CaseStudy[] = [
       },
       "gallery": [
         {
-          "file": "tmk.png",
+          "file": "tmk.webp",
           "width": 1158,
           "height": 760,
           "crop": [
@@ -170,7 +170,7 @@ export const cases: CaseStudy[] = [
           "caption": "ЧТПЗ"
         },
         {
-          "file": "tmk.png",
+          "file": "tmk.webp",
           "width": 1158,
           "height": 760,
           "crop": [
@@ -182,7 +182,7 @@ export const cases: CaseStudy[] = [
           "caption": "Производство и события"
         },
         {
-          "file": "tmk.png",
+          "file": "tmk.webp",
           "width": 1158,
           "height": 760,
           "crop": [
@@ -241,7 +241,7 @@ export const cases: CaseStudy[] = [
     },
     "media": {
       "cover": {
-        "file": "covers/transport-v2.png",
+        "file": "covers/transport-v2.webp",
         "width": 2172,
         "height": 724,
         "crop": [
@@ -254,7 +254,7 @@ export const cases: CaseStudy[] = [
       },
       "gallery": [
         {
-          "file": "transport-clips.png",
+          "file": "transport-clips.webp",
           "width": 644,
           "height": 702,
           "crop": [
@@ -266,7 +266,7 @@ export const cases: CaseStudy[] = [
           "caption": "Люди и транспорт"
         },
         {
-          "file": "transport-clips.png",
+          "file": "transport-clips.webp",
           "width": 644,
           "height": 702,
           "crop": [
@@ -278,7 +278,7 @@ export const cases: CaseStudy[] = [
           "caption": "5 лет перемен"
         },
         {
-          "file": "transport-clips.png",
+          "file": "transport-clips.webp",
           "width": 644,
           "height": 702,
           "crop": [
@@ -290,7 +290,7 @@ export const cases: CaseStudy[] = [
           "caption": "Истории сотрудников"
         },
         {
-          "file": "transport.png",
+          "file": "transport.webp",
           "width": 1170,
           "height": 747,
           "crop": [
@@ -332,7 +332,7 @@ export const cases: CaseStudy[] = [
     },
     "media": {
       "cover": {
-        "file": "covers/tv-v3.png",
+        "file": "covers/tv-v3.webp",
         "width": 2172,
         "height": 724,
         "crop": [
@@ -345,7 +345,7 @@ export const cases: CaseStudy[] = [
       },
       "gallery": [
         {
-          "file": "tv-clips.png",
+          "file": "tv-clips.webp",
           "width": 662,
           "height": 687,
           "crop": [
@@ -357,7 +357,7 @@ export const cases: CaseStudy[] = [
           "caption": "Герои коротких видео"
         },
         {
-          "file": "tv-clips.png",
+          "file": "tv-clips.webp",
           "width": 662,
           "height": 687,
           "crop": [
@@ -369,7 +369,7 @@ export const cases: CaseStudy[] = [
           "caption": "Эксперты и события"
         },
         {
-          "file": "tv-design.png",
+          "file": "tv-design.webp",
           "width": 671,
           "height": 672,
           "crop": [
@@ -381,7 +381,7 @@ export const cases: CaseStudy[] = [
           "caption": "Информационные карточки"
         },
         {
-          "file": "tv-brand.png",
+          "file": "tv-brand.webp",
           "width": 1140,
           "height": 690,
           "crop": [
@@ -423,7 +423,7 @@ export const cases: CaseStudy[] = [
       "gallery": [
         {
           "height": 1707,
-          "file": "literary-award/ceremony-2.jpg",
+          "file": "literary-award/ceremony-2.webp",
           "caption": "Вручение награды",
           "crop": [
             0,
@@ -435,7 +435,7 @@ export const cases: CaseStudy[] = [
         },
         {
           "height": 1708,
-          "file": "literary-award/ceremony-3.jpg",
+          "file": "literary-award/ceremony-3.webp",
           "caption": "Гости церемонии",
           "crop": [
             0,
@@ -447,7 +447,7 @@ export const cases: CaseStudy[] = [
         },
         {
           "height": 1707,
-          "file": "literary-award/ceremony-4.jpg",
+          "file": "literary-award/ceremony-4.webp",
           "caption": "Интервью на церемонии",
           "crop": [
             0,
@@ -459,7 +459,7 @@ export const cases: CaseStudy[] = [
         },
         {
           "height": 1707,
-          "file": "literary-award/ceremony-5.jpg",
+          "file": "literary-award/ceremony-5.webp",
           "caption": "Световое шоу",
           "crop": [
             0,
@@ -472,7 +472,7 @@ export const cases: CaseStudy[] = [
       ],
       "cover": {
         "height": 1708,
-        "file": "literary-award/ceremony-1.jpg",
+        "file": "literary-award/ceremony-1.webp",
         "caption": "Сцена церемонии награждения литературной премии",
         "crop": [
           0,
@@ -532,7 +532,7 @@ export const cases: CaseStudy[] = [
     },
     "media": {
       "cover": {
-        "file": "covers/school-v2.png",
+        "file": "covers/school-v2.webp",
         "width": 2172,
         "height": 724,
         "crop": [
@@ -545,7 +545,7 @@ export const cases: CaseStudy[] = [
       },
       "gallery": [
         {
-          "file": "school.png",
+          "file": "school.webp",
           "width": 1425,
           "height": 782,
           "crop": [
@@ -557,7 +557,7 @@ export const cases: CaseStudy[] = [
           "caption": "Путь длиною в 7 лет"
         },
         {
-          "file": "school.png",
+          "file": "school.webp",
           "width": 1425,
           "height": 782,
           "crop": [
@@ -569,7 +569,7 @@ export const cases: CaseStudy[] = [
           "caption": "Сажайте лаванду"
         },
         {
-          "file": "school.png",
+          "file": "school.webp",
           "width": 1425,
           "height": 782,
           "crop": [

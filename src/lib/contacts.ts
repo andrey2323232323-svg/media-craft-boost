@@ -1,1 +1,1 @@
-export const TELEGRAM_CONTACT_URL = "https://t.me/unknown23232323";
+export const CONTACT_EMAIL_URL = "mailto:info@manchesterdigital.ru";

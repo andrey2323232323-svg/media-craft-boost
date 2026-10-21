@@ -13,7 +13,7 @@ const crops: Record<string, [number, number, number, number]> = {
  'evgeny-entin':[0,0,568,639],
 };
 export default function TeamPortrait({photo,name}:{photo:string;name:string}){
- const id=useId();const crop=crops[photo]??[0,0,568,639];const file=photo==='andrey-vkusov'?'andrey-vkusov-gray.png':photo==='alexey-merkulov'?'alexey-merkulov-shirt.png':photo==='ekaterina-anisimova'?'ekaterina-anisimova-enhanced.png':`${photo}.jpg`;
+ const id=useId();const crop=crops[photo]??[0,0,568,639];const file=photo==='andrey-vkusov'?'andrey-vkusov-gray.webp':photo==='alexey-merkulov'?'alexey-merkulov-shirt.webp':photo==='ekaterina-anisimova'?'ekaterina-anisimova-enhanced.webp':`${photo}.webp`;
  return <svg className="team-portrait" viewBox={crop.join(' ')} role="img" aria-label={name}><defs><clipPath id={id}><rect x={crop[0]} y={crop[1]} width={crop[2]} height={crop[3]}/></clipPath></defs><image clipPath={`url(#${id})`} href={`${import.meta.env.BASE_URL}images/team/${file}`} width="640" height="640" preserveAspectRatio="none"/></svg>;
 }
 

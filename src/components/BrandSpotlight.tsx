@@ -5,8 +5,8 @@ const brands = [
   {name:'Россия 24',file:'russia24.svg',kind:'russia'},
   {name:'Росатом',file:'rosatom.svg',kind:'white'},
   {name:'ТМК',file:'tmk.svg',kind:'white'},
-  {name:'Синара',file:'sinara.png',kind:'white'},
-  {name:'Строгоорганик',file:'strogoorganic.png',kind:'white'},
+  {name:'Синара',file:'sinara.webp',kind:'white'},
+  {name:'Строгоорганик',file:'strogoorganic.webp',kind:'white'},
   {name:'Росреестр',file:'rosreestr.webp',kind:'paper'},
 ];
 
