@@ -28,3 +28,15 @@
 .ceremony-lightbox>h2{font-size:15px;padding-right:35px}.ceremony-viewer{display:grid;place-items:center;min-height:0;touch-action:pan-y}.ceremony-viewer img{display:block;width:100%;height:min(68dvh,700px);object-fit:contain}.ceremony-viewer-footer{display:flex;align-items:center;justify-content:space-between;gap:15px}.ceremony-viewer-footer button{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border:1px solid #596448;border-radius:50%;background:#172012;color:#c5f637;cursor:pointer}.ceremony-viewer-footer p{text-align:center;margin:0;font-size:13px}.ceremony-viewer-footer strong{display:block;font-weight:500}.ceremony-viewer-footer p span{display:block;color:#a7b297;font:11px monospace;margin-top:6px}.ceremony-lightbox button:focus-visible{outline:2px solid #c5f637;outline-offset:3px}
 @media(max-width:650px){.ceremony-lightbox[role="dialog"]{padding:16px}.ceremony-viewer img{height:56dvh}.ceremony-viewer-footer p{font-size:12px}}
 
+
+.clients-marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.clients-track{display:flex;width:max-content;animation:clients-scroll 65s linear infinite;will-change:transform}
+.clients-group{display:flex;flex:none;align-items:center}
+.clients-group .client-logo{flex:0 0 230px;width:230px;min-height:110px;padding:24px 28px}
+.clients-group .client-logo img{max-width:100%;max-height:54px}
+.clients-track.is-paused,.clients-marquee:hover .clients-track{animation-play-state:paused}
+.clients-motion-toggle{margin-left:auto;display:grid;place-items:center;width:34px;height:34px;border:1px solid #394032;border-radius:50%;background:transparent;color:#b8c3ad;cursor:pointer}
+.clients-motion-toggle:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+@keyframes clients-scroll{to{transform:translateX(-50%)}}
+@media(max-width:650px){.clients-group .client-logo{flex-basis:190px;width:190px;min-height:90px;padding:20px 25px}.clients-group .client-logo img{max-height:45px}.clients-track{animation-duration:65s}}
+@media(prefers-reduced-motion:reduce){.clients-track{animation:none;transform:none;will-change:auto}.clients-group[aria-hidden=true]{display:none}.clients-marquee{overflow-x:auto;mask-image:none}.clients-motion-toggle{display:none}}
