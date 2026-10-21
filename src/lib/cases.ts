@@ -614,16 +614,16 @@ export const cases: CaseStudy[] = [
     },
     "media": {
       "cover": {
-        "file": "../videos/motiv/poster-3.webp",
-        "width": 540,
-        "height": 960,
+        "file": "covers/motiv-film.webp",
+        "width": 2172,
+        "height": 724,
         "crop": [
           0,
           0,
-          540,
-          960
+          2172,
+          724
         ],
-        "caption": "Кадр из экскурсии по киноместам Екатеринбурга"
+        "caption": "Экскурсии по киноместам Екатеринбурга"
       },
       "gallery": []
     },
@@ -644,53 +644,6 @@ export const cases: CaseStudy[] = [
         "poster": "videos/motiv/poster-3.webp"
       }
     ],
-    "verticalGallery": false,
-    "formatsOnly": false
-  },
-  {
-    "title": "Росреестр",
-    "company": "Росреестр",
-    "services": "SMM, производство контента, модерация",
-    "number": "08",
-    "link": "",
-    "results": [],
-    "details": {
-      "subtitle": "Поддержка официального сообщества во ВКонтакте: производство контента и модерация.",
-      "tags": [
-        "SMM",
-        "ВКонтакте",
-        "Контент",
-        "Модерация",
-        "Визуальный стиль"
-      ],
-      "metrics": [],
-      "task": "Обеспечить поддержку официального сообщества Росреестра во ВКонтакте: создавать контент и модерировать сообщество.",
-      "work": [
-        "Производство контента для официального сообщества",
-        "Модерация сообщества во ВКонтакте"
-      ],
-      "platform": "",
-      "handle": ""
-    },
-    "achievements": [
-      "Разработан новый визуальный стиль",
-      "Запущен аккаунт в Твиттер с уникальным контентом"
-    ],
-    "media": {
-      "cover": {
-        "file": "covers/rosreestr.webp",
-        "width": 2171,
-        "height": 724,
-        "crop": [
-          0,
-          0,
-          2171,
-          724
-        ],
-        "caption": "Иллюстрация: недвижимость, семья и окружающий мир"
-      },
-      "gallery": []
-    },
     "verticalGallery": false,
     "formatsOnly": false
   }

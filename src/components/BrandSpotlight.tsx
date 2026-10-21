@@ -7,7 +7,7 @@ const brands = [
   {name:'ТМК',file:'tmk.svg',kind:'white'},
   {name:'Синара',file:'sinara.webp',kind:'white'},
   {name:'Строгоорганик',file:'strogoorganic.webp',kind:'white'},
-  {name:'Росреестр',file:'rosreestr.webp',kind:'paper'},
+  {name:'Мотив',file:'motiv.webp',kind:'white'},
 ];
 
 export default function BrandSpotlight() {
