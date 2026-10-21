@@ -1,6 +1,6 @@
 import type { CaseImage } from './case-media';
 
-type CaseStudy = { title: string; company: string; services: string; number: string; link: string; results: string[]; details: { subtitle: string; tags: string[]; metrics: string[][]; task: string; work: string[]; note?: string; platform: string; handle: string }; media: { cover: CaseImage; gallery: CaseImage[] }; ceremony?: boolean; verticalGallery: boolean; formatsOnly: boolean };
+type CaseStudy = { title: string; company: string; services: string; number: string; link: string; results: string[]; details: { subtitle: string; tags: string[]; metrics: string[][]; task: string; work: string[]; note?: string; platform: string; handle: string }; media: { cover: CaseImage; gallery: CaseImage[] }; ceremony?: boolean; galleryTitle?: string; achievements?: string[]; verticalGallery: boolean; formatsOnly: boolean };
 
 export const cases: CaseStudy[] = [
   {
@@ -491,6 +491,79 @@ export const cases: CaseStudy[] = [
     "link": "https://t.me/fhistory_official",
     "ceremony": true
   },
+{
+  "title": "Росреестр",
+  "company": "Росреестр",
+  "services": "SMM, производство контента, модерация",
+  "number": "08",
+  "link": "",
+  "results": [],
+  "details": {
+    "subtitle": "Поддержка официального сообщества во ВКонтакте: производство контента и модерация.",
+    "tags": [
+      "SMM",
+      "ВКонтакте",
+      "Контент",
+      "Модерация",
+      "Визуальный стиль"
+    ],
+    "metrics": [],
+    "task": "Обеспечить поддержку официального сообщества Росреестра во ВКонтакте: создавать контент и модерировать сообщество.",
+    "work": [
+      "Производство контента для официального сообщества",
+      "Модерация сообщества во ВКонтакте"
+    ],
+    "platform": "",
+    "handle": ""
+  },
+  "achievements": [
+    "Разработан новый визуальный стиль",
+    "Запущен аккаунт в Твиттер с уникальным контентом"
+  ],
+  "galleryTitle": "Примеры контента Росреестра",
+  "media": {
+    "cover": {
+      "file": "rosreestr/community.webp",
+      "width": 1141,
+      "height": 525,
+      "crop": [
+        0,
+        10,
+        1126,
+        379
+      ],
+      "caption": "Официальное сообщество Росреестра"
+    },
+    "gallery": [
+      {
+        "file": "rosreestr/space.webp",
+        "width": 602,
+        "height": 630,
+        "crop": [
+          0,
+          0,
+          602,
+          630
+        ],
+        "caption": "Познавательный контент: граница космоса"
+      },
+      {
+        "file": "rosreestr/amnesty.webp",
+        "width": 586,
+        "height": 615,
+        "crop": [
+          0,
+          0,
+          586,
+          615
+        ],
+        "caption": "Информационные карточки: дачная амнистия"
+      }
+    ]
+  },
+  "verticalGallery": false,
+  "formatsOnly": false
+},
   {
     "title": "Строгоорганик",
     "services": "YouTube",

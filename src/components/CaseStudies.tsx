@@ -27,7 +27,7 @@ export default function CaseStudies() {
    <div className="case-slider-toolbar"><nav className="case-index" aria-label="Выбрать кейс">{cases.map((c,i)=><button type="button" aria-pressed={selected===i} aria-controls="case-viewport" onClick={()=>api?.scrollTo(i)} key={c.number}><span>{c.number}</span>{c.title}</button>)}</nav><div className="slider-controls"><span aria-live="polite" aria-atomic="true">{String(selected+1).padStart(2,'0')} <small>/ {String(cases.length).padStart(2,'0')}</small></span><button type="button" onClick={()=>api?.scrollPrev()} aria-label="Предыдущий кейс"><ArrowLeft size={20}/></button><button type="button" onClick={()=>api?.scrollNext()} aria-label="Следующий кейс"><ArrowRight size={20}/></button></div></div>
    <div id="case-viewport" ref={viewport} className="case-viewport" style={{height}} role="region" aria-roledescription="карусель" aria-label="Кейсы агентства" tabIndex={0} onKeyDown={e=>{if(e.key==='ArrowLeft'){e.preventDefault();api?.scrollPrev();}if(e.key==='ArrowRight'){e.preventDefault();api?.scrollNext();}}}>
     <div className="case-track" ref={track}>{cases.map((c,i)=>{const d=c.details;const media=c.media;return <div className="case-slide" role="group" aria-roledescription="слайд" aria-label={`${i+1} из ${cases.length}: ${c.title}`} aria-hidden={selected!==i} {...(selected!==i?{inert:''}:{})} key={c.number}>
-     <article id={`case-${c.number}`} className={`case-study study-${i} ${c.ceremony?'study-ceremony':''}`} aria-labelledby={`case-title-${c.number}`}>
+     <article id={`case-${c.number}`} className={`case-study study-${c.number==='08'?7:c.number==='06'?5:i} ${c.ceremony?'study-ceremony':''}`} aria-labelledby={`case-title-${c.number}`}>
       <div className="study-hero"><Artwork image={media.cover} className="study-art"/><div className="study-shade"/>
        <div className="study-intro"><span className="study-kicker">КЕЙС / {c.number}<span className="study-company">{c.company}</span></span><h3 id={`case-title-${c.number}`}>{c.link?<a href={c.link} target="_blank" rel="noopener noreferrer">{c.title}<ArrowUpRight aria-hidden="true"/></a>:c.title}</h3><p>{d.subtitle}</p><ul className="study-tags">{d.tags.map(tag=><li key={tag}>{tag}</li>)}</ul></div>
        {c.link&&<a className="study-platform" href={c.link} target="_blank" rel="noopener noreferrer"><span className="platform-icon">{d.platform==='YouTube'?<Youtube size={26}/>:<ArrowUpRight size={26}/>}</span><span><strong>{d.platform}</strong><span>{d.handle}</span><small>{d.platform==='YouTube'?'Смотреть видео на канале':'Перейти в сообщество'}</small></span><ArrowUpRight size={17}/></a>}
@@ -35,7 +35,8 @@ export default function CaseStudies() {
       </div>
       {d.metrics.length>0&&<div className="study-results"><h4>Результаты</h4><dl className="study-metrics">{d.metrics.map(([value,label,scope])=><div key={label}><dt>{label}</dt><dd>{value}</dd><span>{scope}</span></div>)}</dl></div>}
       <div className="study-details"><div><h4>Задача</h4><p>{d.task}</p>{d.note&&<p className="study-note">{d.note}</p>}</div><div><h4>{c.formatsOnly?'Форматы проекта':'Что мы сделали'}</h4><ol>{d.work.map((item,n)=><li key={item}><span>{String(n+1).padStart(2,'0')}</span>{item}</li>)}</ol></div></div>
-      {c.ceremony&&<CeremonyGallery photos={media.gallery}/>}
+      {c.achievements&&<div className="study-achievements"><h4>Достижения</h4><ul>{c.achievements.map(item=><li key={item}>{item}</li>)}</ul></div>}
+      {(c.ceremony||c.galleryTitle)&&<CeremonyGallery photos={media.gallery} title={c.galleryTitle}/>}
      </article>
     </div>;})}</div>
    </div>
