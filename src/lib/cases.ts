@@ -345,57 +345,34 @@ export const cases: CaseStudy[] = [
       },
       "gallery": [
         {
-          "file": "tv-clips.webp",
-          "width": 662,
-          "height": 687,
-          "crop": [
-            9,
-            47,
-            203,
-            361
-          ],
-          "caption": "Герои коротких видео"
-        },
-        {
-          "file": "tv-clips.webp",
-          "width": 662,
-          "height": 687,
-          "crop": [
-            439,
-            47,
-            203,
-            361
-          ],
-          "caption": "Эксперты и события"
-        },
-        {
-          "file": "tv-design.webp",
+          "file": "est-reshenie/publication.webp",
           "width": 671,
           "height": 672,
           "crop": [
-            1,
-            69,
-            669,
-            573
-          ],
-          "caption": "Информационные карточки"
-        },
-        {
-          "file": "tv-brand.webp",
-          "width": 1140,
-          "height": 690,
-          "crop": [
             0,
             0,
-            1138,
-            374
+            671,
+            672
           ],
-          "caption": "Фирменное оформление"
+          "caption": "Пример публикации"
         }
       ]
     },
     "verticalGallery": true,
-    "formatsOnly": true
+    "formatsOnly": true,
+    "videos": [
+      {
+        "title": "Ролик с делового форума",
+        "file": "videos/est-reshenie/clip-2.mp4",
+        "poster": "videos/est-reshenie/poster-2.webp"
+      },
+      {
+        "title": "Интервью с предпринимателем",
+        "file": "videos/est-reshenie/clip-1.mp4",
+        "poster": "videos/est-reshenie/poster-1.webp"
+      }
+    ],
+    "galleryTitle": "Пример публикации"
   },
   {
     "number": "05",
