@@ -357,6 +357,11 @@ export const cases: CaseStudy[] = [
         "title": "Интервью с предпринимателем",
         "file": "videos/est-reshenie/clip-1.mp4",
         "poster": "videos/est-reshenie/poster-1.webp"
+      },
+      {
+        "title": "Мем по теме предпринимательства",
+        "file": "videos/est-reshenie/clip-3.mp4",
+        "poster": "videos/est-reshenie/poster-3.webp"
       }
     ]
   },
@@ -549,17 +554,17 @@ export const cases: CaseStudy[] = [
     "formatsOnly": false,
     "videos": [
       {
-        "title": "Мария Винокур — ролик 1",
+        "title": "Ролик о страхах садоводов",
         "file": "videos/strogoorganic/clip-1.mp4",
         "poster": "videos/strogoorganic/poster-1.webp"
       },
       {
-        "title": "Мария Винокур — ролик 2",
+        "title": "Ответы на вопросы подписчиков",
         "file": "videos/strogoorganic/clip-2.mp4",
         "poster": "videos/strogoorganic/poster-2.webp"
       },
       {
-        "title": "Мария Винокур — ролик 3",
+        "title": "Ролик о болях аудитории",
         "file": "videos/strogoorganic/clip-3.mp4",
         "poster": "videos/strogoorganic/poster-3.webp"
       }
