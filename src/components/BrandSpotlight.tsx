@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState, type CSSProperties } from 're
 import './BrandSpotlight.css';
 
 const brands = [
-  {name:'Россия 24',file:'russia24.svg',kind:'russia'},
+  {name:'Есть решение',file:'white-est-reshenie.svg',kind:'white'},
   {name:'Росатом',file:'rosatom.svg',kind:'white'},
   {name:'ТМК',file:'tmk.svg',kind:'white'},
   {name:'Синара',file:'sinara.webp',kind:'white'},
@@ -75,7 +75,6 @@ export default function BrandSpotlight() {
         </button>)}
       </div>
     </div>
-    <span className="brand-hint" aria-hidden="true">НАВЕДИТЕ. СТАНЬТЕ ЗАМЕТНЕЕ.</span>
   </div>;
 }
 

@@ -332,16 +332,16 @@ export const cases: CaseStudy[] = [
     },
     "media": {
       "cover": {
-        "file": "covers/tv-v3.webp",
-        "width": 2172,
-        "height": 724,
+        "file": "covers/est-reshenie-geologist.jpg",
+        "width": 1671,
+        "height": 941,
         "crop": [
           0,
           0,
-          2172,
-          724
+          1671,
+          941
         ],
-        "caption": "Художественная обложка проекта"
+        "caption": "Геолог на фоне буровой установки"
       },
       "gallery": []
     },

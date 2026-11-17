@@ -7,9 +7,9 @@ import './CaseStudies.css';
 import CeremonyGallery from './CeremonyGallery';
 import CaseVideos from './CaseVideos';
 
-function Artwork({image,className='',fit='slice'}:{image:CaseImage;className?:string;fit?:'slice'|'meet'}) {
+function Artwork({image,className='',fit='slice',align='xMidYMid'}:{image:CaseImage;className?:string;fit?:'slice'|'meet';align?:'xMidYMid'|'xMidYMin'}) {
  const cropId=useId();
- return <svg className={className} viewBox={image.crop.join(' ')} role="img" aria-label={image.caption} preserveAspectRatio={`xMidYMid ${fit}`}><defs><clipPath id={cropId}><rect x={image.crop[0]} y={image.crop[1]} width={image.crop[2]} height={image.crop[3]}/></clipPath></defs><image clipPath={`url(#${cropId})`} href={`${import.meta.env.BASE_URL}images/${image.file}`} width={image.width} height={image.height}/></svg>;
+ return <svg className={className} viewBox={image.crop.join(' ')} role="img" aria-label={image.caption} preserveAspectRatio={`${align} ${fit}`}><defs><clipPath id={cropId}><rect x={image.crop[0]} y={image.crop[1]} width={image.crop[2]} height={image.crop[3]}/></clipPath></defs><image clipPath={`url(#${cropId})`} href={`${import.meta.env.BASE_URL}images/${image.file}`} width={image.width} height={image.height}/></svg>;
 }
 
 export default function CaseStudies() {
@@ -29,7 +29,7 @@ export default function CaseStudies() {
    <div id="case-viewport" ref={viewport} className="case-viewport" style={{height}} role="region" aria-roledescription="карусель" aria-label="Кейсы агентства" tabIndex={0} onKeyDown={e=>{if(e.key==='ArrowLeft'){e.preventDefault();api?.scrollPrev();}if(e.key==='ArrowRight'){e.preventDefault();api?.scrollNext();}}}>
     <div className="case-track" ref={track}>{cases.map((c,i)=>{const d=c.details;const media=c.media;return <div className="case-slide" role="group" aria-roledescription="слайд" aria-label={`${i+1} из ${cases.length}: ${c.title}`} aria-hidden={selected!==i} {...(selected!==i?{inert:''}:{})} key={c.number}>
      <article id={`case-${c.number}`} className={`case-study study-${c.number==='08'?7:c.number==='06'?5:i} ${c.ceremony?'study-ceremony':''}`} aria-labelledby={`case-title-${c.number}`}>
-      <div className="study-hero"><Artwork image={media.cover} className="study-art"/><div className="study-shade"/>
+      <div className="study-hero"><Artwork image={media.cover} className="study-art" align={c.number==='04'?'xMidYMin':undefined}/><div className="study-shade"/>
        <div className="study-intro"><span className="study-kicker">КЕЙС / {c.number}<span className="study-company">{c.company}</span></span><h3 id={`case-title-${c.number}`}>{c.link?<a href={c.link} target="_blank" rel="noopener noreferrer">{c.title}<ArrowUpRight aria-hidden="true"/></a>:c.title}</h3><p>{d.subtitle}</p><ul className="study-tags">{d.tags.map(tag=><li key={tag}>{tag}</li>)}</ul></div>
        {c.link&&<a className="study-platform" href={c.link} target="_blank" rel="noopener noreferrer"><span className="platform-icon">{d.platform==='YouTube'?<Youtube size={26}/>:<ArrowUpRight size={26}/>}</span><span><strong>{d.platform}</strong><span>{d.handle}</span><small>{d.platform==='YouTube'?'Смотреть видео на канале':'Перейти в сообщество'}</small></span><ArrowUpRight size={17}/></a>}
        

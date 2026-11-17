@@ -4,7 +4,7 @@ const clients = [
  {name:'ТМК',file:'',source:'Предоставленный скриншот ЧТПЗ / ТМК'},
  {name:'РОСАТОМ',file:'rosatom.svg',source:'https://logo-teka.com/en/rosatom/'},
  {name:'СИНАРА',file:'sinara.webp',source:'https://www.sinara-group.com/press-center/'},
- {name:'РОССИЯ 24',file:'russia24.svg',source:'https://commons.wikimedia.org/wiki/File:Rossiya-24_Logo.svg'},
+ {name:'Есть решение',file:'white-est-reshenie.svg',source:'Предоставленный логотип «Есть решение»'},
  {name:'Кинофестиваль «Одна шестая»',file:'one-sixth.webp',source:'https://optim.tildacdn.com/tild3163-3532-4665-b830-316136633839/-/format/webp/1_6_fest_logo2-07.png.webp'},
  {name:'МОТИВ',file:'motiv.webp',source:'https://img.motivtelecom.ru/docs/5e574f08238eb.png'},
  {name:'Строгоорганик',file:'strogoorganic.webp',source:'https://strogoorganic.ru/'},
