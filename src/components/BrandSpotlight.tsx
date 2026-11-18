@@ -68,7 +68,7 @@ export default function BrandSpotlight() {
     <div className="brand-beam" aria-hidden="true" />
     <div ref={lamp} className="brand-lamp" aria-hidden="true">
       <div className="lamp-mount"/>
-      <div className="lamp-head"><div className="lamp-body"/><div className="lamp-yoke"/><div className="lamp-door lamp-door-top"/><div className="lamp-door lamp-door-bottom"/><div className="lamp-lens"/></div>
+      <div className="lamp-head"><div className="lamp-rig"><div className="lamp-body"/><div className="lamp-yoke"/><div className="lamp-door lamp-door-top"/><div className="lamp-door lamp-door-bottom"/><div className="lamp-lens"/></div></div>
     </div>
     <div ref={stage} className="brand-stage" onPointerLeave={() => { cancelAnimationFrame(frame.current); pointer.current = null; setHovered(null); }}>
       <div className="brand-echo" aria-hidden="true"/>
