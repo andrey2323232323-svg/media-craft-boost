@@ -70,7 +70,7 @@ export default function BrandSpotlight() {
       <div className="lamp-mount"/>
       <div className="lamp-head"><div className="lamp-body"/><div className="lamp-yoke"/><div className="lamp-door lamp-door-top"/><div className="lamp-door lamp-door-bottom"/><div className="lamp-lens"/></div>
     </div>
-    <div ref={stage} className="brand-stage" onPointerLeave={() => { pointer.current = null; setHovered(null); }}>
+    <div ref={stage} className="brand-stage" onPointerLeave={() => { cancelAnimationFrame(frame.current); pointer.current = null; setHovered(null); }}>
       <div className="brand-echo" aria-hidden="true"/>
       <div className="brand-grid">
         {brands.map((brand, i) => <button type="button" key={brand.name}
@@ -81,7 +81,6 @@ export default function BrandSpotlight() {
           onPointerDown={e => { inputType.current = e.pointerType; }}
           onPointerEnter={e => { if (e.pointerType !== 'touch') {pointer.current = {x:e.clientX,y:e.clientY}; setHovered(i);} }}
           onPointerMove={e => { if (e.pointerType !== 'touch') { pointer.current = {x:e.clientX,y:e.clientY}; cancelAnimationFrame(frame.current); frame.current = requestAnimationFrame(() => aim(i, pointer.current)); } }}
-          onPointerLeave={() => {cancelAnimationFrame(frame.current); pointer.current = null; setHovered(null);}}
           onFocus={e => { if (e.currentTarget.matches(':focus-visible')) setFocused(i); }} onBlur={() => setFocused(null)}
           onClick={e => {
             if (inputType.current === 'touch') {

@@ -58,7 +58,7 @@ describe('BrandSpotlight', () => {
     fireEvent.pointerCancel(getAllByRole('button')[0],{pointerType:'touch'});
     expect(container.querySelector('.brand-showcase')).toHaveClass('is-resting');
   });
-  it('aims at the heading by default and returns there after pointer leave', () => {
+  it('keeps the beam in card gaps and returns to the heading only after leaving the stage', () => {
     const {container,getAllByRole}=mount();
     const root=container.querySelector('.brand-showcase')!;
     expect(endpoint(root).x).toBeCloseTo(320);
@@ -68,7 +68,17 @@ describe('BrandSpotlight', () => {
     expect(endpoint(root).x).toBeCloseTo(745);
     expect(endpoint(root).y).toBeCloseTo(270);
     expect(card).toHaveClass('is-active');
-    fireEvent.pointerLeave(card);
+    const stage=container.querySelector('.brand-stage')!;
+    fireEvent.pointerLeave(card,{relatedTarget:stage});
+    expect(root).toHaveClass('is-tracking');
+    expect(card).toHaveClass('is-active');
+    expect(endpoint(root).x).toBeCloseTo(745);
+    expect(endpoint(root).y).toBeCloseTo(270);
+    const next=getAllByRole('button')[2];
+    fireEvent.pointerOut(stage,{clientX:780,clientY:290,relatedTarget:next});
+    expect(next).toHaveClass('is-active');
+    expect(endpoint(root).x).toBeCloseTo(780);
+    fireEvent.pointerLeave(stage);
     expect(root).toHaveClass('is-resting');
     expect(endpoint(root).x).toBeCloseTo(320);
     expect(endpoint(root).y).toBeCloseTo(340);
