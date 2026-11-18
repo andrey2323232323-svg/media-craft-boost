@@ -8,7 +8,10 @@ beforeEach(() => {
   vi.stubGlobal('ResizeObserver', class { observe(){} disconnect(){} });
   vi.stubGlobal('DOMMatrix', class { inverse(){return this;} });
   vi.stubGlobal('DOMPoint', class { constructor(public x:number,public y:number){} matrixTransform(){return this;} });
-  vi.stubGlobal('PointerEvent', MouseEvent);
+  vi.stubGlobal('PointerEvent', class extends MouseEvent {
+    pointerType: string;
+    constructor(type:string, init:PointerEventInit = {}) { super(type, init); this.pointerType = init.pointerType ?? 'mouse'; }
+  });
   Object.defineProperty(document, 'fonts', {configurable:true,value:{ready:Promise.resolve()}});
   vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect').mockImplementation(function() {
     if (this.classList.contains('brand-lamp')) return rect(700,100,0,0);
@@ -30,6 +33,31 @@ function endpoint(root:Element) {
 }
 
 describe('BrandSpotlight', () => {
+  it('keeps touch selection after release, switches brands and toggles back to the heading', () => {
+    const {container,getAllByRole}=mount();
+    const [first,second]=getAllByRole('button');
+    const tap = (card:HTMLElement) => {
+      fireEvent.pointerDown(card,{pointerType:'touch'});
+      fireEvent.pointerUp(card,{pointerType:'touch'});
+      fireEvent.pointerLeave(card,{pointerType:'touch'});
+      fireEvent.click(card,{detail:1});
+    };
+    tap(first);
+    expect(first).toHaveAttribute('aria-pressed','true');
+    expect(endpoint(container.querySelector('.brand-showcase')!).y).toBeCloseTo(280);
+    tap(second);
+    expect(first).toHaveAttribute('aria-pressed','false');
+    expect(second).toHaveAttribute('aria-pressed','true');
+    tap(second);
+    expect(container.querySelector('.brand-showcase')).toHaveClass('is-resting');
+    expect(endpoint(container.querySelector('.brand-showcase')!).y).toBeCloseTo(340);
+  });
+  it('does not select a logo when a touch gesture is cancelled for scrolling', () => {
+    const {container,getAllByRole}=mount();
+    fireEvent.pointerDown(getAllByRole('button')[0],{pointerType:'touch'});
+    fireEvent.pointerCancel(getAllByRole('button')[0],{pointerType:'touch'});
+    expect(container.querySelector('.brand-showcase')).toHaveClass('is-resting');
+  });
   it('aims at the heading by default and returns there after pointer leave', () => {
     const {container,getAllByRole}=mount();
     const root=container.querySelector('.brand-showcase')!;

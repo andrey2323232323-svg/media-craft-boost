@@ -19,9 +19,11 @@ export default function BrandSpotlight() {
   const cards = useRef<(HTMLButtonElement | null)[]>([]);
   const pointer = useRef<Point | null>(null);
   const frame = useRef(0);
+  const inputType = useRef('mouse');
   const [hovered, setHovered] = useState<number | null>(null);
   const [focused, setFocused] = useState<number | null>(null);
-  const active = hovered ?? focused;
+  const [selected, setSelected] = useState<number | null>(null);
+  const active = hovered ?? focused ?? selected;
 
   const aim = useCallback((index: number | null, position?: Point | null) => {
     const root = showcase.current;
@@ -75,11 +77,19 @@ export default function BrandSpotlight() {
           ref={node => { cards.current[i] = node; }}
           className={`brand-tile ${active === i ? 'is-active' : ''}`}
           aria-label={`Подсветить бренд «${brand.name}»`}
+          aria-pressed={active === i}
+          onPointerDown={e => { inputType.current = e.pointerType; }}
           onPointerEnter={e => { if (e.pointerType !== 'touch') {pointer.current = {x:e.clientX,y:e.clientY}; setHovered(i);} }}
           onPointerMove={e => { if (e.pointerType !== 'touch') { pointer.current = {x:e.clientX,y:e.clientY}; cancelAnimationFrame(frame.current); frame.current = requestAnimationFrame(() => aim(i, pointer.current)); } }}
           onPointerLeave={() => {cancelAnimationFrame(frame.current); pointer.current = null; setHovered(null);}}
           onFocus={e => { if (e.currentTarget.matches(':focus-visible')) setFocused(i); }} onBlur={() => setFocused(null)}
-          onClick={e => { if (e.detail === 0) setFocused(i); }}>
+          onClick={e => {
+            if (inputType.current === 'touch') {
+              setFocused(null);
+              setHovered(null);
+              setSelected(current => current === i ? null : i);
+            } else if (e.detail === 0) setFocused(i);
+          }}>
           <span className="brand-id" aria-hidden="true">MD / 0{i + 1}</span>
           <img className="brand-logo" src={`${import.meta.env.BASE_URL}images/clients/${brand.file}`} alt={brand.name} draggable={false}/>
           <span className="brand-logo-light" aria-hidden="true"><img className="brand-logo" src={`${import.meta.env.BASE_URL}images/clients/${brand.file}`} alt="" draggable={false}/></span>
